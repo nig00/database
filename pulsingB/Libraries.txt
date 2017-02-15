@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <string.h>
+#include <errno.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <termios.h>
+#include <sys/types.h>
+
+#include <wiringPi.h>           //WiringPi headers
+#include <lcd.h>                //LCD headers from WiringPi
+#include <wiringPiSPI.h>
