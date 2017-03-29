@@ -1,0 +1,16 @@
+<?php
+$con = mysqli_connect('localhost','root','mungu123','rpihealt_patient');
+if(!empty($_REQUEST))
+{
+$temp = @$_REQUEST['temp'];
+$hbt = @$_REQUEST['hbt'];
+$ecg = @$_REQUEST['ecg'];
+
+$query = "INSERT INTO `health` (`temp`, `hbt`, `ecg`)
+ VALUES ('".$temp."', '".$hbt."' ,'".$ecg."')";
+
+//echo $query;
+mysqli_query($con,$query);
+}
+?>
+
