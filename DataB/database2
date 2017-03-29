@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>:: Monitoring System ::</title>
+</head>
+
+<table style="width:100%" border="1">
+
+				<tr>
+
+					<td colspan="5" valign="middle" width="100%" align="center">
+					<h3> Patient Health Monitoring System Using Raspberry Pi3 & IOT </h3></td>
+					
+				</tr>
+
+			</table>
+
+			
+
+</html>
+
+
+
+
+<?php
+
+$con = mysql_connect('localhost','rpihealt_prakash','mungu123');
+if($con)
+{
+	mysql_select_db('rpihealt_patient');
+	$sth = mysql_query("SELECT * FROM health");
+
+} else { 
+	echo "<div style='color:red; font-size:14px;'>Internal server error !!</div>";
+}
+?>
+
+<table width="100%" border="1">
+
+	<tr>
+
+	<th><h3>TEMP</h3></th>
+
+	<th><h3>HEART BEAT</h3></th>
+
+	<th><h3>ECG</h3></th>
+
+	</tr>
+
+
+<?php while($row = mysql_fetch_assoc($sth))
+	{
+?>
+<tr>
+<th><?php echo $row['temp']; ?></th>
+<th><?php echo $row['hbt']; ?></th>
+<th><?php echo $row['ecg']; ?></th>
+
+
+</tr>
+<?php 
+} 
+?>
+
+</table>
